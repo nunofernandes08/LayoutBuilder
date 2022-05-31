@@ -1,0 +1,52 @@
+declare type typeOfComponents = "form" | "textField";
+declare type typeOfTextField = "number" | "text";
+declare type typeOfTextFieldStyle = "outlined" | "contained";
+declare type typeOfSizeOfTextField = "small" | "medium" | "large";
+
+interface componentTextFieldTypes {
+  name: string;
+  multiline: boolean;
+  type: typeOfTextField;
+  style: {
+    fontColor: string;
+    borderColor: string;
+    type: typeOfTextFieldStyle;
+    size: typeOfSizeOfTextField;
+  };
+}
+
+interface jsonTypes {
+  type: typeOfComponents;
+  row: boolean;
+  size: number;
+  components: [
+    {
+      type: typeOfComponents;
+      component: componentTextFieldTypes;
+    }
+  ];
+}
+
+const myJson: jsonTypes[] = [
+  {
+    type: "form",
+    row: false,
+    size: 50,
+    components: [
+      {
+        type: "textField",
+        component: {
+          name: "fullName",
+          multiline: false,
+          type: "number",
+          style: {
+            fontColor: "red",
+            borderColor: "black",
+            type: "outlined",
+            size: "small",
+          },
+        },
+      },
+    ],
+  },
+];
